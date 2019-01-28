@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
+  include Conceivable
   belongs_to :medium
-  before_validation :build_parents
-  
+  before_validation :build_parents  
 end
