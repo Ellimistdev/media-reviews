@@ -3,6 +3,11 @@ class Medium < ApplicationRecord
   has_one :series
   has_one :season
   has_one :episode
+  has_many :reviews
+  has_many :reviewers, through: :reviews, source: :reviewer
+  has_many :views
+  has_many :viewers, through: :views, source: :viewer
+
 
   # Searches the respective media table for its id
   # e.g. if medium_type = 'Episode' query becomes: 
