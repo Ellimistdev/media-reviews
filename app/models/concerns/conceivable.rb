@@ -1,7 +1,7 @@
 module Conceivable
   # generate a model's parents if they don't exist.
   def build_parents
-    self.build_medium(media_type: self.class.to_s.to_sym) unless medium_id
+    self.build_medium(media_type: self.class.to_s) unless medium_id
     if self.instance_of?(Episode)
       self.build_season unless season_id
       self.season.build_series unless season.series_id

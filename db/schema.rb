@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_01_27_204704) do
   end
 
   create_table "media", force: :cascade do |t|
-    t.string "media_type"
+    t.string "medium_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
