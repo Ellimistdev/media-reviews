@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 2019_01_28_004825) do
   end
 
   create_table "views", force: :cascade do |t|
-    t.boolean "viewed"
     t.integer "user_id"
     t.integer "medium_id"
     t.datetime "created_at", null: false
