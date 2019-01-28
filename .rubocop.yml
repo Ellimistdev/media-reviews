@@ -1,0 +1,23 @@
+AllCops:
+  Exclude:
+    - './config/*/*'
+    - './config/*'
+    - './bin/*'
+    - './db/*'
+    - './app/channels/application_cable/*'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+ 
+Metrics/LineLength:
+  Max: 99
+
