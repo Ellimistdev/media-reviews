@@ -1,6 +1,7 @@
 class Season < ApplicationRecord
-  include Conceivable
-  belongs_to :medium
+  # Must include Conceivable before Review/Viewable to avoid ActiveRecord::HasManyThroughOrderError 
+  include Conceivable  
+  include Reviewable, Viewable
   belongs_to :series
   has_many :episodes
   before_validation :build_parents

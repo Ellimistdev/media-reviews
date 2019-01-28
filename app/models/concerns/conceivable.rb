@@ -1,4 +1,9 @@
-module Conceivable
+module Conceivable  
+  def self.included(base)
+    base.class_eval do 
+      belongs_to :medium
+    end
+  end
   # generate a model's parents if they don't exist.
   def build_parents
     self.build_medium(medium_type: self.class.to_s) unless medium_id

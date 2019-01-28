@@ -8,7 +8,6 @@ Fabricator(:view) do
     # randomly review an existing medium or newly generated medium
     medium_type = ['episode', 'season', 'series', 'movie'].sample.to_sym
     existing_media = Medium.all if Medium.any? && [true, true, false].sample
-    puts existing_media ? 'Viewed existing media' : "Created #{medium_type}"
     existing_media ? existing_media.sample : Fabricate(medium_type).medium
   end
 end
