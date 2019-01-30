@@ -3,21 +3,23 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show update]
 
   def new
+    return redirect_to user_path(current_user) if current_user
+
     @user = User.new
   end
-
+  
   def show
     redirect_back(fallback_location: root_path) unless @user
   end
-
+  
   def update
     return redirect_back(fallback_location: root_path), notice: 'You must be logged in as the correct user' unless current_user == @user
-
+    
     current_user.update(user_params)
     current_user.save
     redirect_to user_path(current_user)
   end
-
+  
   def create
     user = User.new(user_params)
     if user.save
