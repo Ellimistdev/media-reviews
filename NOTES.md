@@ -12,9 +12,10 @@
   
 [x] create sessionsController  
 [x] create usersController  
-[ ] create mediaController  
+[x] BUG User creation: uniqueness is enforced on nil values  
 [ ] create viewController  
-[ ] create reviewController 
+[ ] create reviewController  
+[ ] create mediaController  
 ## views
 [ ] create social login partial  
 [ ] add facebook to social_partial  
