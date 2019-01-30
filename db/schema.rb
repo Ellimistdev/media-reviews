@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_013016) do
+ActiveRecord::Schema.define(version: 2019_01_29_234835) do
 
   create_table "episodes", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2019_01_29_013016) do
     t.datetime "updated_at", null: false
     t.index ["medium_id"], name: "index_episodes_on_medium_id"
     t.index ["season_id"], name: "index_episodes_on_season_id"
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "media", force: :cascade do |t|
@@ -71,9 +80,6 @@ ActiveRecord::Schema.define(version: 2019_01_29_013016) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "uid_twitter"
-    t.integer "uid_facebook"
-    t.integer "uid_google_oauth2"
   end
 
   create_table "views", force: :cascade do |t|
