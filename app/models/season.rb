@@ -6,5 +6,6 @@ class Season < ApplicationRecord
   belongs_to :series
   has_many :episodes
   before_validation :build_parents
+  validates :series, presence: true
   validates :number, presence: true
 end

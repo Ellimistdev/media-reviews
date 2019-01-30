@@ -5,5 +5,6 @@ class Episode < ApplicationRecord
   include Reviewable
   belongs_to :season
   before_validation :build_parents
+  validates :season, presence: true
   validates :title, presence: true
 end
