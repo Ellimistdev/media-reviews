@@ -1,9 +1,13 @@
 class SessionsController < ApplicationController
   def new
+    return redirect_to user_path(current_user) if logged_in?
+
     @user = User.new
   end
 
   def create
+    return redirect_to user_path(current_user) if logged_in?
+
     user = User.find_by(username: params[:user][:username])
     if user&.authenticate(params[:user][:password])
       self.current_user = user
@@ -39,8 +43,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :user_id
-    redirect_to root_path
+    self.current_user = nil
+    redirect_to root_path, notice: 'Signed out'
   end
 
   private

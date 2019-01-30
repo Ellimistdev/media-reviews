@@ -5,7 +5,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show; end
+  def show
+    redirect back unless @user
+  end
+
+  def update
+    return redirect_to root_path, notice: 'You must be logged in as the correct user' unless current_user == @user
 
   def create
     @user = User.new(user_params)
