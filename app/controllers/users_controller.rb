@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect back unless @user
+    redirect_back(fallback_location: root_path) unless @user
   end
 
   def update
-    return redirect_to root_path, notice: 'You must be logged in as the correct user' unless current_user == @user
+    return redirect_back(fallback_location: root_path), notice: 'You must be logged in as the correct user' unless current_user == @user
 
     current_user.update(user_params)
     current_user.save
