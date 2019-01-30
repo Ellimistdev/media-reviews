@@ -1,20 +1,48 @@
-## TODO
+# TODO
+## models
 [x] propagate user|media associations through to media elements
   - i.e. episode.viewers should return list of viewers, currently need to call episode.medium.viewers  
-
-[x] create sessionsController  
-[x] create usersController  
+## controllers
+[x] add routes  
 [x] add local auth  
 [x] add omniauth  
   - [x] add facebook  
-    [x] add google  
-    [x] add twitter  
-
+  - [x] add google  
+  - [x] add twitter
+  
+[x] create sessionsController  
+[x] create usersController  
 [ ] create mediaController  
-[x] add routes  
+[ ] create viewController  
+[ ] create reviewController 
+## views
+[ ] create social login partial  
+[ ] add facebook to social_partial  
+[ ] add google to social_partial  
+[ ] add twitter to social_partial  
+[ ] add social_partial to login  
+[ ] add social_partial to signup  
 
+- [ ] create media views
+  - [ ] Custom_Index
+    - Shows links for movies, series 
+  - [ ] sub media
+    - [ ] Index
+      - lists all media in scope
+    - [ ] Show
+      - shows a single media element, its reviews, links to parents, children, mark viewed for current_user
+    - [ ] New  
+      - new media form
+- [ ] create view views
+  - [ ] Index  
+      - has links to all media a user has marked viewed
+- [ ] create review views
+  - [ ] Index
+    - lists all reviews by user with links to reviewed media
+  - [ ] Edit
+    - edit review form
 
-
+# Routes
 ## user reviews | views
 action | method | reviews route | views route
 -|-|-|-
@@ -42,47 +70,49 @@ not accounted for:
   - e.g. get media/movies/:id/reviews/:id || get users/:id/reviews/:id
 
 
-- [ ] Include nested resource show or index (URL e.g. users/2/reviews)
-- [ ] Include nested resource "new" form (URL e.g. media/series/1/season/new)
-- [ ] Include form display of validation errors (form URL e.g. /media/movies/new)
 
 
-GOOGLE  
-{  
-  "provider" => "google_oauth2",  
-  "uid" => "100000000000000000000",  
-  "info" => {  
-    "name" => "John Smith",  
-    "email" => "john@example.com"     
-  }  
+# Auth responses
+Google
+```json
+{
+  "provider" => "google_oauth2",
+  "uid" => "100000000000000000000",
+  "info" => {
+    "name" => "John Smith",
+    "email" => "john@example.com"
+  }
+
+```
+Twitter
+```json
+{
+  :provider => "twitter",
+  :uid => "123456",
+  :info => {
+    :nickname => "johnqpublic",
+    :name => "John Q Public"
+  },
+  :extra => {
+    :raw_info => {
+      :screen_name => ""
+      }
+    }
+  }
 }
-
-TWITTER  
-{  
-  :provider => "twitter",  
-  :uid => "123456",  
-  :info => {  
-    :nickname => "johnqpublic",  
-    :name => "John Q Public"      
+```
+Facebook
+```json 
+{
+  provider: 'facebook',
+  uid: '1234567',
+  info: {
+    email: 'joe@bloggs.com',
   },  
-  :extra => {  
-    :raw_info => {  
-      :screen_name => ""   
-      }  
-    }  
-  }  
-}  
-  
-FACEBOOK  
-{  
-  provider: 'facebook',  
-  uid: '1234567',  
-  info: {  
-    email: 'joe@bloggs.com',  
-  },    
-  extra: {  
-    raw_info: {  
-      username: 'jbloggs'  
-    }  
-  }  
-}  
+  extra: {
+    raw_info: {
+      username: 'jbloggs'
+    }
+  }
+}
+```
