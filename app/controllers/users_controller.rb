@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     return redirect_back(fallback_location: root_path), notice: 'You must be logged in as the correct user' unless current_user == @user
     
     current_user.update(user_params)
-    current_user.save
     redirect_to user_path(current_user)
   end
   
@@ -30,10 +29,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find_by(id: params[:id])
-  end
 
   def user_params
     params.require(:user).permit(:username, :email, :password)

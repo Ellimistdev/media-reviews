@@ -13,9 +13,10 @@
 [x] create sessionsController  
 [x] create usersController  
 [x] BUG User creation: uniqueness is enforced on nil values  
+[x] create reviewController  
 [ ] create viewController  
-[ ] create reviewController  
 [ ] create mediaController  
+- [ ] show action should detect the media type and route to the approprate path
 ## views
 [ ] create social login partial  
 [ ] add facebook to social_partial  
@@ -57,7 +58,8 @@ update | patch | /reviews/:id |
 ## media
 action | method | root
 -|-|-
-index | get | media
+index | get | /media
+show | get | /media/:id < redirects to show path below >
 
 action | method | movie route | series route | season route | episode route | 
 -|-|-|-|-|-
