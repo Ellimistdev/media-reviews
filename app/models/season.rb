@@ -11,6 +11,10 @@ class Season < ApplicationRecord
   scope :in_series, ->(series_id) { where(series_id: series_id) }
 
   def title
-    "#{series.title} - Season #{number}"
+    "#{series.title} - Season #{number}" if series
+  end
+
+  def children
+    episodes.blank? ? nil : episodes
   end
 end
