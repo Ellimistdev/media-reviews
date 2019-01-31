@@ -32,14 +32,14 @@
     - [ ] Index
       - lists all media in scope
     - [ ] Show
-      - shows a single media element, its reviews, links to parents, children, mark viewed for current_user
+      - shows a single media element, its reviews, new review form, links to parents, children, mark viewed for current_user, links to create new children
     - [ ] New  
       - new media form
 - [ ] create view views
   - [ ] Index  
       - has links to all media a user has marked viewed
 - [ ] create review views
-  - [ ] Index
+  - [x] Index
     - lists all reviews by user with links to reviewed media
   - [ ] Edit
     - edit review form

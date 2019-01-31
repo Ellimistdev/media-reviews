@@ -8,4 +8,8 @@ class Season < ApplicationRecord
   before_validation :build_parents
   validates :series, presence: true
   validates :number, presence: true
+
+  def title
+    "#{series.title} - Season #{number}"
+  end
 end

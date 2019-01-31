@@ -2,8 +2,8 @@ class ReviewsController < ApplicationController
   before_action :set_user, only: %i[index]
   before_action :require_login, only: %i[create]
   before_action only: %i[destroy edit update] do 
-    :set_review
-    :require_owner
+    set_review
+    require_owner
   end
 
   def index
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     redirect_to medium_path(@review.medium)
   end
 
-  def destroy
+  def destroy    
     @review.destroy
     redirect_back(fallback_location: root_path)
   end
