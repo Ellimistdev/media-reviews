@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
     review.medium = Medium.find(params[:medium_id])
+    review.reviewer = current_user
     review.save
     # If this fails, view already exists
     View.create(viewer: review.user, medium: review.medium)
@@ -40,7 +41,7 @@ class ReviewsController < ApplicationController
   end
 
   def require_owner
-    return head(:forbidden) unless current_user == @review.reviewer
+    return head(:forbidden) unless current_user == @review&.reviewer
   end
 
   def set_review
