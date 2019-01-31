@@ -9,14 +9,18 @@
   - [x] add facebook  
   - [x] add google  
   - [x] add twitter  
-- [x] create sessionsController  
-- [x] create usersController  
+- [x] create SessionsController  
+- [x] create UsersController  
 - [x] BUG User creation: uniqueness is enforced on nil values  
-- [x] create reviewController  
+- [x] create ReviewsController  
   - [x] adding review should mark media as viewed for reviewer
-- [x] create viewController  
-- [ ] create mediaController  
-  - [ ] show action should detect the media type and route to the approprate path
+- [x] create ViewsController  
+- [x] create MediaController  
+  - [x] show action should detect the media type and route to the approprate path
+- [ ] create MoviesController  
+- [ ] create SeasonsController  
+- [ ] create SeriesController  
+- [ ] create EpisodesController  
 ## views
 - [ ] create social login partial  
 - [ ] add facebook to social_partial  
@@ -25,11 +29,11 @@
 - [ ] add social_partial to login  
 - [ ] add social_partial to signup  
 - [ ] create media views
-  - [ ] Custom_Index
-    - [ ] Shows links for movies, series 
-  - [ ] sub media
+  - [x] Index
+    - [x] Shows links for movies, series 
+  - [ ] sub media [movie, series, season, episode].each
     - [ ] Index
-      - lists all media in scope
+      - [ ] lists all media in scope
     - [ ] Show
       - [ ] shows a single media element
       - [ ] its reviews
