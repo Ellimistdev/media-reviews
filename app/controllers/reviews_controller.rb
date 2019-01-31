@@ -16,7 +16,9 @@ class ReviewsController < ApplicationController
     review.reviewer = current_user
     review.save
     # If this fails, view already exists
-    View.create(viewer: review.user, medium: review.medium)
+    View.create(viewer: review.reviewer, medium: review.medium)
+    return redirect_back fallback_location: medium_path(review.medium), notice: @review.errors unless @review.errors.blank
+
     redirect_to medium_path(review.medium)
   end
 

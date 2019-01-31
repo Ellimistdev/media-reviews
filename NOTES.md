@@ -17,7 +17,7 @@
 - [x] create ViewsController  
 - [x] create MediaController  
   - [x] show action should detect the media type and route to the approprate path
-- [ ] create MoviesController  
+- [x] create MoviesController  
 - [ ] create SeasonsController  
 - [ ] create SeriesController  
 - [ ] create EpisodesController  
