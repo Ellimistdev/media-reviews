@@ -36,12 +36,13 @@
     - [x] its reviews
     - [x] new review form
     - [ ] links to parents
-    - [ ] children
+    - [x] children
     - [ ] mark viewed for current_user
     - [ ] links to create new children
   - [ ] Index
     - [x] lists all media in scope
-    - [ ] lists all children in scope
+    - [ ] lists all parents in scope
+    - [x] lists all children in scope
   - [ ] Movies
     - [ ] New  
       - [ ] new media form
