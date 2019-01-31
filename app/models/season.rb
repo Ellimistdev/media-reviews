@@ -8,6 +8,7 @@ class Season < ApplicationRecord
   before_validation :build_parents
   validates :series, presence: true
   validates :number, presence: true
+  scope :in_series, ->(series_id) { where(series_id: series_id) }
 
   def title
     "#{series.title} - Season #{number}"
