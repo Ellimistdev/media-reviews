@@ -31,7 +31,46 @@
 - [ ] create media views
   - [x] Index
     - [x] Shows links for movies, series 
-  - [ ] sub media [movie, series, season, episode].each
+  - [ ] Movies
+    - [ ] Index
+      - [ ] lists all media in scope
+    - [ ] Show
+      - [ ] shows a single media element
+      - [ ] its reviews
+      - [ ] new review form
+      - [ ] links to parents
+      - [ ] children
+      - [ ] mark viewed for current_user
+      - [ ] links to create new children
+    - [ ] New  
+      - [ ] new media form
+  - [ ] Series
+    - [ ] Index
+      - [ ] lists all media in scope
+    - [ ] Show
+      - [ ] shows a single media element
+      - [ ] its reviews
+      - [ ] new review form
+      - [ ] links to parents
+      - [ ] children
+      - [ ] mark viewed for current_user
+      - [ ] links to create new children
+    - [ ] New  
+      - [ ] new media form
+  - [ ] Seasons
+    - [ ] Index
+      - [ ] lists all media in scope
+    - [ ] Show
+      - [ ] shows a single media element
+      - [ ] its reviews
+      - [ ] new review form
+      - [ ] links to parents
+      - [ ] children
+      - [ ] mark viewed for current_user
+      - [ ] links to create new children
+    - [ ] New  
+      - [ ] new media form
+  - [ ] Episodes
     - [ ] Index
       - [ ] lists all media in scope
     - [ ] Show
