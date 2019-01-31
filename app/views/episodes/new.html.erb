@@ -1,0 +1,8 @@
+<h1>Add an Episode!</h1>
+<%= render 'notice' %>
+<%= form_for Episode.new do |f| %>
+  <%= f.hidden_field :season_id, value: params[:season_id] %><br>
+  <%= f.label :title, 'Title:' %><br>
+  <%= f.text_field :title %><br>
+  <%= f.submit %>
+<% end %>

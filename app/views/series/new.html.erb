@@ -1,0 +1,7 @@
+<h1>Add a Season!</h1>
+<%= render 'notice' %>
+<%= form_for Series.new do |f| %>
+  <%= f.label :title, 'Title:' %><br>
+  <%= f.text_field :title %><br>
+  <%= f.submit %>
+<% end %>
