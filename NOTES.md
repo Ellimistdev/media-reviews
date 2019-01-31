@@ -50,8 +50,8 @@
     - [x] edit review form
 - [x] User views
   - [x] Show
-    - [ ] Should link to user reviews, views,
-    - [ ] Don't display user email
+    - [x] Should link to user reviews, views,
+    - [x] Don't display user email
 
 # Routes
 ## user reviews | views
