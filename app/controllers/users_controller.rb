@@ -9,18 +9,18 @@ class UsersController < ApplicationController
 
     @user = User.new
   end
-  
+
   def show
     redirect_back(fallback_location: root_path) unless @user
   end
-  
+
   def update
     return redirect_back(fallback_location: root_path), notice: 'You must be logged in as the correct user' unless current_user == @user
-    
+
     current_user.update(user_params)
     redirect_to user_path(current_user)
   end
-  
+
   def create
     user = User.new(user_params)
     if user.save

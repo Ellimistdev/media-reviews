@@ -1,2 +1,4 @@
-<h1>Review#edit</h1>
-<p>Find me in app/views/review/edit.html.erb</p>
+<h1>Edit review for <%= link_to @review.medium.element.title, medium_path(@review.medium) %></h1>
+<%= render 'notice' %>
+<%= render 'form', review: @review %>
+

@@ -1,10 +1,10 @@
 class IdentityValidator < ActiveModel::Validator
-  def validate(record)    
+  def validate(record)
     if record.identities.blank?
       if record.username.blank? && record.email.blank?
-        record.errors[:base] << 'This user must have at least one username, email, or social identity'
+        record.errors[:missing_identity] << 'User must have at least one username, email, or social identity'
       end
-      record.errors[:base] << 'Users must have a password when created via username/email' if record.password_digest.blank?
+      record.errors[:invalid_password] << 'Users must have a password when created via username/email' if record.password_digest.blank?
     end
     record = enforce_unique(record)
   end

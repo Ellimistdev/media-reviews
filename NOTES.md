@@ -3,46 +3,55 @@
 [x] propagate user|media associations through to media elements
   - i.e. episode.viewers should return list of viewers, currently need to call episode.medium.viewers  
 ## controllers
-[x] add routes  
-[x] add local auth  
-[x] add omniauth  
+- [x] add routes  
+- [x] add local auth  
+- [x] add omniauth  
   - [x] add facebook  
   - [x] add google  
-  - [x] add twitter
-  
-[x] create sessionsController  
-[x] create usersController  
-[x] BUG User creation: uniqueness is enforced on nil values  
-[x] create reviewController  
-[ ] create viewController  
-[ ] create mediaController  
+  - [x] add twitter  
+- [x] create sessionsController  
+- [x] create usersController  
+- [x] BUG User creation: uniqueness is enforced on nil values  
+- [x] create reviewController  
+  - [ ] adding review should mark media as viewed for reviewer
+- [ ] create viewController  
+- [ ] create mediaController  
 - [ ] show action should detect the media type and route to the approprate path
 ## views
-[ ] create social login partial  
-[ ] add facebook to social_partial  
-[ ] add google to social_partial  
-[ ] add twitter to social_partial  
-[ ] add social_partial to login  
-[ ] add social_partial to signup  
-
+- [ ] create social login partial  
+- [ ] add facebook to social_partial  
+- [ ] add google to social_partial  
+- [ ] add twitter to social_partial  
+- [ ] add social_partial to login  
+- [ ] add social_partial to signup  
 - [ ] create media views
   - [ ] Custom_Index
-    - Shows links for movies, series 
+    - [ ] Shows links for movies, series 
   - [ ] sub media
     - [ ] Index
       - lists all media in scope
     - [ ] Show
-      - shows a single media element, its reviews, new review form, links to parents, children, mark viewed for current_user, links to create new children
+      - [ ] shows a single media element
+      - [ ] its reviews
+      - [ ] new review form
+      - [ ] links to parents
+      - [ ] children
+      - [ ] mark viewed for current_user
+      - [ ] links to create new children
     - [ ] New  
-      - new media form
+      - [ ] new media form
 - [ ] create view views
   - [ ] Index  
-      - has links to all media a user has marked viewed
-- [ ] create review views
+      - [ ] has links to all media a user has marked viewed
+- [x] create review views
   - [x] Index
-    - lists all reviews by user with links to reviewed media
-  - [ ] Edit
-    - edit review form
+    - [x] lists all reviews by user with links to reviewed media
+  - [x] Edit
+    - [x] edit review form
+- [x] User views
+  - [x] Show
+    - [ ] Should link to user reviews, views,
+    - [ ] Don't display user email
 
 # Routes
 ## user reviews | views

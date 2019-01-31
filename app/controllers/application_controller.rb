@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     session[:user_id] = user&.id
     @current_user = user
-  end  
+  end
 
   def set_user(id = params[:user_id])
     @user = User.find_by(id: id)
