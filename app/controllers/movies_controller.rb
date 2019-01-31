@@ -4,12 +4,10 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
-  def new
-    @movie = Movie.new
-  end
+  def new; end
 
   def create
-    movie = Movie.new(movie_params)
+    movie = Movie.create(movie_params)
     return redirect_back fallback_location: new_movie_path, notice: movie.errors unless movie.errors.blank?
 
     redirect_to movie_path(movie)
