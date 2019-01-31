@@ -1,7 +1,7 @@
 <h1><%= "#{@user.attributes['username']}" %></h1>
 
 <% if current_user == @user %>
-  <%= render 'form', url: user_path(@user) %>
+  <%= render 'form', url: user_path(@user), user: @user %>
 <% end %>
 <ul>
   <li><%= "Id: #{@user.attributes['id']}" %></li>

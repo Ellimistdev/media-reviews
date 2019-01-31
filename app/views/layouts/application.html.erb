@@ -11,7 +11,7 @@
 
   <body>
     <% if logged_in?%>
-      <%= form_tag '/logout' do |f| %>
+      <%= form_tag logout_path do |f| %>
         <%= submit_tag 'Log Out' %>
       <% end %>
       <%= link_to 'Your Profile', user_path(current_user)%>
@@ -19,7 +19,7 @@
       <%= link_to 'Log In', login_path%>
       <%= link_to 'Signup', signup_path%>
     <% end %>
-    <p>current user: <%= current_user %></p>
+    <p>current user: <%= current_user&.username %></p>
     <p>logged_in?: <%= logged_in? %></p>    
     <p id="notice"><%= notice %></p>
     <%= yield %>
