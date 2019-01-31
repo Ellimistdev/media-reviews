@@ -14,9 +14,9 @@
 - [x] BUG User creation: uniqueness is enforced on nil values  
 - [x] create reviewController  
   - [x] adding review should mark media as viewed for reviewer
-- [ ] create viewController  
+- [x] create viewController  
 - [ ] create mediaController  
-- [ ] show action should detect the media type and route to the approprate path
+  - [ ] show action should detect the media type and route to the approprate path
 ## views
 - [ ] create social login partial  
 - [ ] add facebook to social_partial  
@@ -40,9 +40,9 @@
       - [ ] links to create new children
     - [ ] New  
       - [ ] new media form
-- [ ] create view views
-  - [ ] Index  
-      - [ ] has links to all media a user has marked viewed
+- [x] create view views
+  - [x] Index  
+      - [x] has links to all media a user has marked viewed
 - [x] create review views
   - [x] Index
     - [x] lists all reviews by user with links to reviewed media
