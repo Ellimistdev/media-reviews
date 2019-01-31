@@ -18,9 +18,9 @@
 - [x] create MediaController  
   - [x] show action should detect the media type and route to the approprate path
 - [x] create MoviesController  
-- [ ] create SeasonsController  
-- [ ] create SeriesController  
-- [ ] create EpisodesController  
+- [x] create SeasonsController  
+- [x] create SeriesController  
+- [x] create EpisodesController  
 ## views
 - [x] create social login partial  
 - [x] add facebook to social_partial  
