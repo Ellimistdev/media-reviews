@@ -2,6 +2,9 @@
 
 <% if current_user == @user %>
   <%= render 'form', url: user_path(@user), user: @user %>
+  <p>Link your social!</p>  
+  <p>This will not merge any existing data associated with any other accounts</p>  
+  <%= render 'social' %>
 <% end %>
 <ul>
   <li><%= "User id: #{@user.attributes['id']}" %></li>

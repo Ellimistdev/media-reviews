@@ -15,7 +15,7 @@ class MediaController < ApplicationController
       redirect_to episode_path(@medium.element)
     else
       redirect_back fallback_location: root_path, notice: 'Something has gone terribly wrong'
-    end    
+    end
   end
 
   private

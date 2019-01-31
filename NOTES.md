@@ -22,12 +22,12 @@
 - [ ] create SeriesController  
 - [ ] create EpisodesController  
 ## views
-- [ ] create social login partial  
-- [ ] add facebook to social_partial  
-- [ ] add google to social_partial  
-- [ ] add twitter to social_partial  
-- [ ] add social_partial to login  
-- [ ] add social_partial to signup  
+- [x] create social login partial  
+- [x] add facebook to social_partial  
+- [x] add google to social_partial  
+- [x] add twitter to social_partial  
+- [x] add social_partial to login  
+- [x] add social_partial to signup  
 - [ ] create media views
   - [x] Index
     - [x] Shows links for movies, series 
