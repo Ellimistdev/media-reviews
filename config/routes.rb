@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :views, only: %i[create destroy]
 
   # Media Routes
-  resources :media, only: %i[show new] 
+  resources :media, only: %i[show] 
   resources :movies, only: %i[index new create show]
   resources :series, only: %i[index new create show] do
     resources :seasons, only: %i[index] do
