@@ -69,9 +69,9 @@ update | patch | /reviews/:id |
 
 
 ## media
-action | method | root
+action | method | route
 -|-|-
-index | get | /media
+index | get | /
 show | get | /media/:id < redirects to show path below >
 
 action | method | movie route | series route | season route | episode route | 
