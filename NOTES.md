@@ -31,56 +31,27 @@
 - [ ] create media views
   - [x] Index
     - [x] Shows links for movies, series 
+  - [ ] Show
+    - [x] shows a single media element
+    - [x] its reviews
+    - [x] new review form
+    - [ ] links to parents
+    - [ ] children
+    - [ ] mark viewed for current_user
+    - [ ] links to create new children
+  - [ ] Index
+    - [x] lists all media in scope
+    - [ ] lists all children in scope
   - [ ] Movies
-    - [ ] Index
-      - [ ] lists all media in scope
-    - [ ] Show
-      - [ ] shows a single media element
-      - [ ] its reviews
-      - [ ] new review form
-      - [ ] links to parents
-      - [ ] children
-      - [ ] mark viewed for current_user
-      - [ ] links to create new children
     - [ ] New  
       - [ ] new media form
-  - [ ] Series
-    - [ ] Index
-      - [ ] lists all media in scope
-    - [ ] Show
-      - [ ] shows a single media element
-      - [ ] its reviews
-      - [ ] new review form
-      - [ ] links to parents
-      - [ ] children
-      - [ ] mark viewed for current_user
-      - [ ] links to create new children
+  - [ ] Series    
     - [ ] New  
       - [ ] new media form
-  - [ ] Seasons
-    - [ ] Index
-      - [ ] lists all media in scope
-    - [ ] Show
-      - [ ] shows a single media element
-      - [ ] its reviews
-      - [ ] new review form
-      - [ ] links to parents
-      - [ ] children
-      - [ ] mark viewed for current_user
-      - [ ] links to create new children
+  - [ ] Seasons    
     - [ ] New  
       - [ ] new media form
-  - [ ] Episodes
-    - [ ] Index
-      - [ ] lists all media in scope
-    - [ ] Show
-      - [ ] shows a single media element
-      - [ ] its reviews
-      - [ ] new review form
-      - [ ] links to parents
-      - [ ] children
-      - [ ] mark viewed for current_user
-      - [ ] links to create new children
+  - [ ] Episodes    
     - [ ] New  
       - [ ] new media form
 - [x] create view views
