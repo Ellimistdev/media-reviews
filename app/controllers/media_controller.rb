@@ -18,6 +18,8 @@ class MediaController < ApplicationController
     end
   end
 
+  def new; end
+
   private
 
   def set_medium
