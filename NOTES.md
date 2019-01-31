@@ -13,7 +13,7 @@
 - [x] create usersController  
 - [x] BUG User creation: uniqueness is enforced on nil values  
 - [x] create reviewController  
-  - [ ] adding review should mark media as viewed for reviewer
+  - [x] adding review should mark media as viewed for reviewer
 - [ ] create viewController  
 - [ ] create mediaController  
 - [ ] show action should detect the media type and route to the approprate path
