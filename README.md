@@ -1,6 +1,7 @@
 # Rails CMS
 
-This project models a Media reviews domain with User registration, authentication, third party identity integration, and the following relationships: 
+This project models a Media reviews domain with User registration, authentication, third party identity integration, and the following relationships:  
+
 ![Model of Database](https://cdn.buttercms.com/RK0Xqe7STCC50zMsJw18)
 
 ## Installation
