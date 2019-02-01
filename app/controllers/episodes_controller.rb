@@ -4,10 +4,12 @@ class EpisodesController < ApplicationController
   def new; end
 
   def create
-    episode = Episode.create(episode_params)
+    episode = Episode.new(episode_params)
+    season = Season.find_by(id: params[:episode][:season_id])
+    episode.season = season
+    episode.save
     unless episode.errors.blank?
-      season = Season.find_by(id: params[:episode][:season_id])
-      return redirect_back fallback_location: new_series_season_episode_path(series_id: season.parent.id, season_id: season.id), notice: episode.errors 
+      return redirect_back fallback_location: season_path(params[:episode][:season_id]), notice: episode.errors 
     end
 
     redirect_to episode_path(episode)
@@ -18,7 +20,7 @@ class EpisodesController < ApplicationController
   private
 
   def episode_params
-    params.require(:episode).permit(:title, :season_id)
+    params.require(:episode).permit(:title)
   end
 
   def set_episode

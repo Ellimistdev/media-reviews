@@ -10,7 +10,7 @@ class Season < ApplicationRecord
   validates :medium, presence: true, uniqueness: true
   validates :series, presence: true
   validates :number, presence: true
-  validates_uniqueness_of :number, scope: :series_id
+  validates_uniqueness_of :number, scope: :series
   scope :in_series, ->(series_id) { where(series_id: series_id) }
 
   def title

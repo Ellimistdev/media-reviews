@@ -8,6 +8,7 @@ class Episode < ApplicationRecord
   validates :medium, presence: true, uniqueness: true
   validates :season, presence: true
   validates :title, presence: true
+  validates_uniqueness_of :title, scope: :season
   scope :in_season, ->(season_id) { where(season_id: season_id) }
   scope :in_series, ->(series_id) { joins(:season).joins('LEFT JOIN series ON seasons.series_id = series.id').where('series.id = ?', series_id) }
 

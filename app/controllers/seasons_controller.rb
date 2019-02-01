@@ -7,7 +7,10 @@ class SeasonsController < ApplicationController
   end
 
   def create
-    season = Season.create(season_params)    
+    season = Season.new(season_params)    
+    series = Series.find_by(params[:season][:series_id])   
+    season.series = series
+    season.save
     return redirect_back fallback_location: new_series_season_path(params[:season][:series_id]), notice: season.errors unless season.errors.blank?
 
     redirect_to season_path(season)
@@ -18,7 +21,7 @@ class SeasonsController < ApplicationController
   private
 
   def season_params
-    params.require(:season).permit(:number, :series_id, episodes_attributes: [:title])
+    params.require(:season).permit(:number, episodes_attributes: [:title])
   end
 
   def set_season
