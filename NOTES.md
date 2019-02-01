@@ -72,7 +72,7 @@
 ## user reviews | views
 action | method | reviews route | views route
 -|-|-|-
-index | get | /users/:id/reviews | /users/:id/views
+index | get | /users/:user_id/reviews | /users/:user_id/views
 create | post | /reviews | /views 
 destroy | delete | /reviews/:id | /views/:id
 edit | get | /reviews/:id/edit | 
@@ -82,14 +82,13 @@ update | patch | /reviews/:id |
 ## media
 action | method | route
 -|-|-
-index | get | /
-show | get | /media/:id < redirects to show path below >
+show | get | /media/:id (redirects to show path below)
 
 action | method | movie route | series route | season route | episode route | 
 -|-|-|-|-|-
-index | get | /movies | /series | /series/:id/seasons | /series/:id/seasons/:id/episodes
-new | get | /movies/new | /series/new | /seasons/new | /episodes/new
+index | get | /movies | /series | /series/:series_id/seasons | /series/:series_id/seasons/:season_id/episodes
 create | post | /movies | /series | /seasons | /episodes
+new | get | /movies/new | /series/new | /seasons/new | /episodes/new
 show | get | /movies/:id | /series/:id | /seasons/:id | /episodes/:id
 
 not accounted for:  
