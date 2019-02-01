@@ -85,8 +85,8 @@ show | get | /media/:id (redirects to show path below)
 action | method | movie route | series route | season route | episode route | 
 -|-|-|-|-|-
 index | get | /movies | /series | /series/:series_id/seasons | /series/:series_id/seasons/:season_id/episodes
+new | get | /movies/new | /series/new | /series/:series_id/seasons/new | /series/:series_id/seasons/:season_id/episodes/new
 create | post | /movies | /series | /seasons | /episodes
-new | get | /movies/new | /series/new | /seasons/new | /episodes/new
 show | get | /movies/:id | /series/:id | /seasons/:id | /episodes/:id
 
 not accounted for:  

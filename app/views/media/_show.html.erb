@@ -25,9 +25,9 @@
 <% unless medium.class.name == 'Movie' || medium.class.name == 'Episode' %>
   <%= render 'media/children', medium: medium %>
   <% if medium.class.name == 'Series' %>
-    <%= render '/media/prompt_new', medium_name: 'Season', new_path: new_season_path %>
+    <%= render '/media/prompt_new', medium_name: 'Season', new_path: new_series_season_path(series_id: medium.id) %>
   <% else %>
-    <%= render '/media/prompt_new', medium_name: 'Episode', new_path: new_episode_path %>
+    <%= render '/media/prompt_new', medium_name: 'Episode', new_path: new_series_season_episode_path(series_id: medium.parent.id, season_id: medium.id) %>
   <% end %>
 <% end %>
 

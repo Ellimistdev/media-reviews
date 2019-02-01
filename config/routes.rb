@@ -13,9 +13,13 @@ Rails.application.routes.draw do
   # Media Routes
   resources :media, only: %i[show] 
   resources :movies, only: %i[index new create show]
-  resources :series, only: %i[index new create show]
-  resources :seasons, only: %i[new create show]
-  resources :episodes, only: %i[new create show]
+  resources :series, only: %i[index new create show] do
+    resources :seasons, only: %i[new] do
+      resources :episodes, only: %i[new]
+    end
+  end
+  resources :seasons, only: %i[create show]
+  resources :episodes, only: %i[create show]
 
   # Session Control
   get '/login/' => 'sessions#new'
