@@ -28,7 +28,7 @@
 - [x] add twitter to social_partial  
 - [x] add social_partial to login  
 - [x] add social_partial to signup  
-- [ ] create media views
+- [x] create media views
   - [x] Index
     - [x] Shows links for movies, series 
   - [x] Show
@@ -41,18 +41,18 @@
     - [x] links to create new children
   - [x] Index
     - [x] lists all media in scope
-  - [ ] Movies
-    - [ ] New  
-      - [ ] new media form
-  - [ ] Series    
-    - [ ] New  
-      - [ ] new media form
-  - [ ] Seasons    
-    - [ ] New  
-      - [ ] new media form
-  - [ ] Episodes    
-    - [ ] New  
-      - [ ] new media form
+  - [x] Movies
+    - [x] New  
+      - [x] new media form
+  - [x] Series    
+    - [x] New  
+      - [x] new media form
+  - [x] Seasons    
+    - [x] New  
+      - [x] new media form
+  - [x] Episodes    
+    - [x] New  
+      - [x] new media form
 - [x] create view views
   - [x] Index  
       - [x] has links to all media a user has marked viewed

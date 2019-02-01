@@ -1,7 +1,10 @@
 class SeasonsController < ApplicationController
   before_action :set_season, only: %i[show]
 
-  def new; end
+  def new
+    @season = Season.new
+    @season.episodes.build
+  end
 
   def create
     season = Season.create(season_params)    
@@ -15,7 +18,7 @@ class SeasonsController < ApplicationController
   private
 
   def season_params
-    params.require(:season).permit(:number, :series_id)
+    params.require(:season).permit(:number, :series_id, episodes_attributes: [:title])
   end
 
   def set_season

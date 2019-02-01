@@ -1,0 +1,6 @@
+<%= form_for episode do |f| %>
+  <%= f.hidden_field :season_id, value: season_id %><br>
+  <%= f.label :title, 'Title:' %><br>
+  <%= f.text_field :title %><br>
+  <%= f.submit %>
+<% end %>
