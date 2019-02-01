@@ -4,8 +4,7 @@ class SeasonsController < ApplicationController
   def new; end
 
   def create
-    season = Season.create(season_params)
-    byebug
+    season = Season.create(season_params)    
     return redirect_back fallback_location: new_season_path, notice: season.errors unless season.errors.blank?
 
     redirect_to season_path(season)

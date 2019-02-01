@@ -4,6 +4,6 @@ class Movie < ApplicationRecord
   include Viewable
   include Reviewable
   before_validation :build_parents
-  validates :medium_id, presence: true, uniqueness: true
+  validates :medium, presence: true, uniqueness: true
   validates :title, presence: true
 end
