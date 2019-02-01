@@ -1,4 +1,5 @@
 <h1><%= medium.title %></h1>
+
 <% unless medium.reviews.empty? %>
    <% medium.reviews.each do |review| %>
     <p><%= review.content%> by <%= link_to  review.reviewer.username, user_path(review.reviewer) %></p>
@@ -7,14 +8,21 @@
   <% end %> 
 <% else %>
   <p><%= medium.title %> has no reviews!</p>
-<% end %> 
-
-<%= render 'media/children', medium: medium %>
+<% end %>
 
 <% if logged_in? %>
-  <h4>Add a review!</h4>
+  <h4>Review this <%= medium.medium.medium_type %>!</h4>
   <%= render 'notice' %>
   <%= render 'reviews/form', review: Review.new, medium_id: medium.medium_id %>
 <% else %>
   <p>Log in to add a review!</p>
+<% end %>
+
+<% unless medium.class.name == 'Movie' || medium.class.name == 'Episode' %>
+  <%= render 'media/children', medium: medium %>
+  <% if medium.class.name == 'Series' %>
+    <%= render '/media/prompt_new', medium_name: 'Season', new_path: new_season_path %>
+  <% else %>
+    <%= render '/media/prompt_new', medium_name: 'Episode', new_path: new_episode_path %>
+  <% end %>
 <% end %>
