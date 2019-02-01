@@ -12,10 +12,8 @@ class ViewsController < ApplicationController
 
   def create
     view = View.new(view_params)
-    view.medium = Medium.find(params[:medium_id])
-    view.viewer = current_user
     view.save
-    redirect_to medium_path(review.medium)
+    redirect_to medium_path(view.medium)
   end
 
   def destroy
@@ -26,7 +24,7 @@ class ViewsController < ApplicationController
   private
 
   def view_params
-    params.require(:view)
+    params.require(:view).permit(:medium_id, :user_id)
   end
 
   def require_owner

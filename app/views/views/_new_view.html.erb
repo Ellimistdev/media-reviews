@@ -1,0 +1,5 @@
+<%= form_for view do |f| %>
+  <%= f.hidden_field :medium_id, value: medium_id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'Mark as watched!'%>
+<% end %>

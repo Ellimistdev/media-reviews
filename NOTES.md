@@ -31,18 +31,16 @@
 - [ ] create media views
   - [x] Index
     - [x] Shows links for movies, series 
-  - [ ] Show
+  - [x] Show
     - [x] shows a single media element
     - [x] its reviews
     - [x] new review form
-    - [ ] links to parents
+    - [x] links to parents
     - [x] children
-    - [ ] mark viewed for current_user
+    - [x] mark viewed for current_user
     - [x] links to create new children
-  - [ ] Index
+  - [x] Index
     - [x] lists all media in scope
-    - [x] lists all parents in scope
-    - [x] lists all children in scope
   - [ ] Movies
     - [ ] New  
       - [ ] new media form
