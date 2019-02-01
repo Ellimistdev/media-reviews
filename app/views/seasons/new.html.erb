@@ -2,7 +2,7 @@
 <%= render 'notice' %>
 <%= form_for Season.new do |f| %>
   <%= f.hidden_field :series_id, value: params[:series_id] %><br>
-  <%= f.label :title, 'Title:' %><br>
-  <%= f.text_field :title %><br>
+  <%= f.label :number, 'Number:' %><br>
+  <%= f.text_field :number %><br>
   <%= f.submit %>
 <% end %>
