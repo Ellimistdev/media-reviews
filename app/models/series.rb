@@ -6,6 +6,7 @@ class Series < ApplicationRecord
   has_many :seasons
   has_many :episodes, through: :seasons
   before_validation :build_parents
+  validates :medium_id, presence: true, uniqueness: true
   validates :title, presence: true
 
   def children

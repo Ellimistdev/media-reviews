@@ -6,7 +6,8 @@ class Season < ApplicationRecord
   belongs_to :series
   has_many :episodes
   before_validation :build_parents
-  validates :series, presence: true
+  validates :medium_id, presence: true, uniqueness: true
+  validates :series_id, presence: true
   validates :number, presence: true
   scope :in_series, ->(series_id) { where(series_id: series_id) }
 
