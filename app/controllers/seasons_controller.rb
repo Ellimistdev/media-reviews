@@ -8,7 +8,7 @@ class SeasonsController < ApplicationController
 
   def create
     season = Season.new(season_params)    
-    series = Series.find_by(params[:season][:series_id])   
+    series = Series.find_by(id: params[:season][:series_id]) 
     season.series = series
     season.save
     return redirect_back fallback_location: new_series_season_path(params[:season][:series_id]), notice: season.errors unless season.errors.blank?
