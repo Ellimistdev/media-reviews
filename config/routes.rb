@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   # Media Routes
   resources :media, only: %i[show] 
   resources :movies, only: %i[index new create show]
-  resources :series, only: %i[index new create show] do
-    resources :seasons, only: %i[index] do
-      resources :episodes, only: %i[index]
-    end
-  end  
+  resources :series, only: %i[index new create show]
   resources :seasons, only: %i[new create show]
   resources :episodes, only: %i[new create show]
 
@@ -25,6 +21,10 @@ Rails.application.routes.draw do
   get '/login/' => 'sessions#new'
   post '/logout/' => 'sessions#destroy'
   resources :sessions, only: %i[create]
+
   # omniauth
   get '/auth/:provider/callback' => 'sessions#omni_create'
+
+  # fallback
+  get '*path' => redirect('/')
 end

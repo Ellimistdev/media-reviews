@@ -1,14 +1,11 @@
 class SeasonsController < ApplicationController
   before_action :set_season, only: %i[show]
 
-  def index
-    @seasons = Season.in_series(params[:series_id])
-  end
-
   def new; end
 
   def create
     season = Season.create(season_params)
+    byebug
     return redirect_back fallback_location: new_season_path, notice: season.errors unless season.errors.blank?
 
     redirect_to season_path(season)

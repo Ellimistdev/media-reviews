@@ -1,10 +1,6 @@
 class EpisodesController < ApplicationController
   before_action :set_episode, only: %i[show]
 
-  def index
-    @episodes = Episode.in_season(params[:season_id])
-  end
-
   def new; end
 
   def create
