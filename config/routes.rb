@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   resources :episodes, only: %i[create show]
 
   # Session Control
-  get '/login/' => 'sessions#new'
-  post '/logout/' => 'sessions#destroy'
+  get '/login' => 'sessions#new'
+  post '/logout' => 'sessions#destroy'
   resources :sessions, only: %i[create]
 
   # omniauth
