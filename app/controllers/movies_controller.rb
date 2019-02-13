@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[show]
-  def index
-    @movies = Movie.all
-  end
+  before_action :filter, only: %i[index]
+
+  def index; end
 
   def new; end
 
@@ -19,6 +19,10 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(:title)
+  end
+
+  def filter    
+    @movies = params[:filter] ? Movie.where('title like ?', "%#{params[:filter]}%" ) : Movie.all
   end
 
   def set_movie
