@@ -26,11 +26,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Load environment variables
 gem 'dotenv-rails'
+# Enable omniauth support
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
+# Enable model serialization
+gem 'active_model_serializers'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
