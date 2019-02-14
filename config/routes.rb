@@ -3,10 +3,7 @@ Rails.application.routes.draw do
 
   # User Routes
   get '/signup' => 'users#new'
-  resources :users, only: %i[show update create] do 
-    resources :reviews, only: %i[index] 
-    resources :views, only: %i[index]
-  end
+  resources :users, only: %i[show update create]
   resources :reviews, only: %i[create edit update destroy]
   resources :views, only: %i[create destroy]
 
@@ -33,6 +30,8 @@ Rails.application.routes.draw do
 
   # Basic API endpoints
   get '/:controller/:id/data', action: 'data'
+  get '/users/:id/reviews' => 'users#reviews'
+  get '/users/:id/views' => 'users#views'
 
   # fallback
   match "*path", via: %i[get post], to: "application#handle_404"

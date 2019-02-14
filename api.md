@@ -173,3 +173,34 @@
     }
   ]
 }
+```
+#### User Reviews
+```json
+[
+  {
+    "id": 1,
+    "content": "Pariatur error totam eum.",
+    "rating": "4",
+    "reviewer": {
+      "id": 1,
+      "username": "Williams DuBuque DDS"
+    },
+    "medium": {
+      "id": 1,
+      "medium_type": "Series",
+      "title": "The Painted Veil"
+    }
+  }
+]
+```
+#### User Views
+```json
+[
+  {
+    "id": 36,
+    "medium_id": 32,
+    "user_id": 1,
+    "title": "The Widening Gyre"
+  }
+]
+```
