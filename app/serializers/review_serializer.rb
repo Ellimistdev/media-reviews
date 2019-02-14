@@ -1,9 +1,12 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes %i[id content rating medium_title]
+  attributes %i[id content rating reviewer]
   belongs_to :reviewer
-  belongs_to :medium 
+  belongs_to :medium
 
-  def medium_title
-    object.medium.element.title
+  def reviewer
+    reviewer = {
+      id: object.reviewer.id,
+      username: object.reviewer.username
+    }
   end
 end
