@@ -1,4 +1,4 @@
-<h1><%= "#{@user.attributes['username']}" %></h1>
+<h1 id='username'><%= "#{@user.attributes['username']}" %></h1>
 <% if current_user == @user %>
   <fieldset>
     <legend>Update profile information:</legend>
@@ -10,6 +10,39 @@
 <% end %>
 <ul>
   <li><%= "User id: #{@user.attributes['id']}" %></li>
-  <li><%= link_to "User Reviews", user_reviews_path(@user) %></li>
-  <li><%= link_to "User Views", user_views_path(@user) %></li>
+  <li><button id='review-button'>User Reviews</button></li>
+  <li><button id='view-button'>User Views</button></li>
 </ul>
+<div id='user-data'>
+</div>
+
+<script type='text/javascript' charset='utf-8'>
+  const username = document.getElementById('username').text;
+  const id = document.URL.match(/(\d+)(?!.*\d+)/)[0];
+  const clear = userData => {
+    userData.innerHTML = '';    
+  }
+
+  const setData = (data, type) => {
+    const userData = document.getElementById('user-data');
+    if (data.length < 1) {
+      userData.innerHTML = `${username} has no ${type}!`;
+    } else {
+      clear(userData);
+      data.forEach(element => {      
+        userData.innerHTML += element;                  
+      });
+    }
+  }
+  
+  const getData = (route, type) => {
+    fetch(route)
+      .then(response => response.json())
+      .then(json => {
+        setData(json, type);
+      });
+  }
+
+  document.getElementById('review-button').addEventListener('click', () => getData(`/users/${id}/reviews`, 'reviews'));
+  document.getElementById('view-button').addEventListener('click', () => getData(`/users/${id}/views`, 'views'));  
+</script>
