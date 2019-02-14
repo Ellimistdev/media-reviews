@@ -21,4 +21,13 @@ class ApplicationController < ActionController::Base
   def require_login
     return head(:forbidden) unless current_user
   end
+
+  def handle_404
+    redirect_to root_path
+  end
+
+  # Overridden by exposed controllers
+  def data
+    redirect_to root_path
+  end
 end

@@ -142,6 +142,15 @@
   }
 }
 ```
+### View
+```json
+{
+  "id": 1,
+  "medium_id": 45,
+  "user_id": 36,
+  "title": "The Daffodil Sky"
+}
+```
 ### User
 ```json
 {
