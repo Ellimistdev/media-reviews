@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
   def data
     render json: @review
   end
-  
+
   private
 
   def review_params

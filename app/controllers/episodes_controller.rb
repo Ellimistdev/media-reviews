@@ -9,7 +9,7 @@ class EpisodesController < ApplicationController
     episode.season = season
     episode.save
     unless episode.errors.blank?
-      return redirect_back fallback_location: season_path(params[:episode][:season_id]), notice: episode.errors 
+      return redirect_back fallback_location: season_path(params[:episode][:season_id]), notice: episode.errors
     end
 
     redirect_to episode_path(episode)
