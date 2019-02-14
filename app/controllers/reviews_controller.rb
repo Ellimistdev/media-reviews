@@ -1,11 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_user, only: %i[index]
+  before_action :set_review, only: %i[destroy data]
   before_action :require_login, only: %i[create]
-  before_action only: %i[destroy edit update] do
-    set_review
-    require_owner
-  end
-  before_action :set_review, only: :data
+  before_action :require_owner, only: %i[destroy edit update]
 
   def index
     @reviews = @user.reviews

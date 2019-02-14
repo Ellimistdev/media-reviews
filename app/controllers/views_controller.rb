@@ -1,10 +1,8 @@
 class ViewsController < ApplicationController
   before_action :set_user, only: %i[index]
+  before_action :set_view, only: %i[destroy data]
   before_action :require_login, only: %i[create]
-  before_action only: %i[destroy] do
-    set_view
-    require_owner
-  end
+  before_action :require_owner, only: %i[destroy]
 
   def index
     @views = @user.views
@@ -19,6 +17,10 @@ class ViewsController < ApplicationController
   def destroy
     @view.destroy
     redirect_back fallback_location: root_path
+  end
+
+  def data
+    render json: @view
   end
 
   private
