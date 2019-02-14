@@ -26,9 +26,19 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
   resources :sessions, only: %i[create]
 
-  # omniauth
+  # Omniauth
   get '/auth/:provider/callback' => 'sessions#omni_create'
+  
+  # Basic API endpoints
+  get '/users/:id/data' => 'users#data'
+  get '/reviews/:id/data' => 'reviews#data'
+  get '/media/:id/data' => 'media#data'
+  get '/movies/:id/data' => 'movies#data'
+  get '/series/:id/data' => 'series#data'
+  get '/seasons/:id/data' => 'seasons#data'
+  get '/episodes/:id/data' => 'episodes#data'
 
   # fallback
   get '*path' => redirect('/')
+
 end

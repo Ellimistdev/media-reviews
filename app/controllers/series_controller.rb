@@ -1,5 +1,5 @@
 class SeriesController < ApplicationController
-  before_action :set_series, only: %i[show]
+  before_action :set_series, only: %i[show data]
 
   def index
     @series = Series.all
@@ -15,6 +15,10 @@ class SeriesController < ApplicationController
   end
 
   def show; end
+
+  def data
+    render json: @series
+  end
 
   private
 

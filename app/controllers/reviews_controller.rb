@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
     set_review
     require_owner
   end
+  before_action :set_review, only: :data
 
   def index
     @reviews = @user.reviews
@@ -34,6 +35,10 @@ class ReviewsController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
+  def data
+    render json: @review
+  end
+  
   private
 
   def review_params

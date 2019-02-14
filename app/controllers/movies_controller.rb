@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[show]
+  before_action :set_movie, only: %i[show data]
   def index
     @movies = Movie.all
   end
@@ -14,6 +14,10 @@ class MoviesController < ApplicationController
   end
 
   def show; end
+
+  def data
+    render json: @movie
+  end
 
   private
 

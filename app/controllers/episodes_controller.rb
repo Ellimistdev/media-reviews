@@ -1,5 +1,5 @@
 class EpisodesController < ApplicationController
-  before_action :set_episode, only: %i[show]
+  before_action :set_episode, only: %i[show data]
 
   def new; end
 
@@ -16,6 +16,10 @@ class EpisodesController < ApplicationController
   end
 
   def show; end
+
+  def data
+    render json: @episode
+  end
 
   private
 

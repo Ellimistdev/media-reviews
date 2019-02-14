@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-  before_action :set_season, only: %i[show]
+  before_action :set_season, only: %i[show data]
 
   def new
     @season = Season.new
@@ -17,6 +17,10 @@ class SeasonsController < ApplicationController
   end
 
   def show; end
+
+  def data
+    render json: @season
+  end
 
   private
 
