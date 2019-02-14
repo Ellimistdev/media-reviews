@@ -17,32 +17,12 @@
 </div>
 
 <script type='text/javascript' charset='utf-8'>
-  const username = document.getElementById('username').text;
+  const dataHandler = new DataHandler;
   const id = document.URL.match(/(\d+)(?!.*\d+)/)[0];
-  const clear = userData => {
-    userData.innerHTML = '';    
-  }
+  const target = document.getElementById('user-data')
 
-  const setData = (data, type) => {
-    const userData = document.getElementById('user-data');
-    if (data.length < 1) {
-      userData.innerHTML = `${username} has no ${type}!`;
-    } else {
-      clear(userData);
-      data.forEach(element => {      
-        userData.innerHTML += element;                  
-      });
-    }
-  }
-  
-  const getData = (route, type) => {
-    fetch(route)
-      .then(response => response.json())
-      .then(json => {
-        setData(json, type);
-      });
-  }
-
-  document.getElementById('review-button').addEventListener('click', () => getData(`/users/${id}/reviews`, 'reviews'));
-  document.getElementById('view-button').addEventListener('click', () => getData(`/users/${id}/views`, 'views'));  
+  document.getElementById('review-button')
+    .addEventListener('click', () => dataHandler.renderData(`/users/${id}/reviews`, target, 'review'));
+  document.getElementById('view-button')
+    .addEventListener('click', () => dataHandler.renderData(`/users/${id}/views`, target, 'view'));  
 </script>
