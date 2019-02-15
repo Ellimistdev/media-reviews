@@ -1,4 +1,4 @@
-class DataRenderer { 
+class DataRenderer {
   clearChildrenOf(target) {
     Array.from(target.children).forEach(child => child.innerHTML = '');
   }
@@ -54,8 +54,8 @@ class DataRenderer {
     }
 
     if (data.reviews.length < 1) {      
-      const medium = document.getElementsByClassName('title')[0].innerHTML;
-      this.renderNoData(target, medium, 'reviews');
+      const element = document.getElementsByClassName('title')[0].innerHTML;
+      this.renderNoData(target, element, 'reviews');
     } else {
       this.renderReviews(medium.reviews);
     }
@@ -63,7 +63,7 @@ class DataRenderer {
   }
 
   renderUserData(data, type) {
-    const target = document.getElementById('user-data');
+    const target = document.getElementById('user-data');    
     this.clearChildrenOf(target);
     if (data.length < 1) {      
       const username = document.getElementById('username').innerHTML;

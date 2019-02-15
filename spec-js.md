@@ -5,10 +5,11 @@ Project Specs:
 * [ ] Must have a Rails Backend and new requirements implemented through JavaScript.
   * [ ] Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend.
     - Media Index
-  * [ ] Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend.
-    - Media Show 
+  * [x] Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend.
+    - Media Show
   * [x] Your Rails application must reveal at least one `has-many` relationship through JSON that is then rendered to the page.
     - User Show > Reviews
+    - User Show > Views
   * [ ] Must use your Rails application to render a form for creating a resource that is submitted dynamically through JavaScript.
     - Media Show > new Review
   * [x] At least one of the JS Model Objects must have a method on the prototype.
