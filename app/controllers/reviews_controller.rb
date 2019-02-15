@@ -30,7 +30,11 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_back fallback_location: root_path
+    if @review.destroyed?
+      head :accepted
+    else
+      head :bad_request
+    end
   end
 
   def data

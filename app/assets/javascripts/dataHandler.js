@@ -50,4 +50,29 @@ class DataHandler {
   getCurretUser() {
     return this.getDataAsJson('/cui').then(json => this.setUser(json));
   }
+
+  getAuthenticityToken(){
+    return this.getDataAsJson('/token');
+  }
+
+  getOwnerActions(id) {
+    return this.getDataAsJson(`/goa?${id}`);
+  }
+
+  deleteReview(id) {
+    fetch(`/reviews/${id}`, {
+      method: 'delete',
+    }).then(response => {
+      if (response.status === 202) {
+        let reviewElement = document.getElementById(`review-${id}`);
+        reviewElement.parentNode.removeChild(reviewElement);
+      } else {
+        response.json().then(messages => {          
+          messages['errors'].forEach(error => {
+            notice.innerHTML += `<li class='error'>${error}</li>`;        
+          });
+        });
+      }
+    });
+  }
 }
