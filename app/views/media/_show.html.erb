@@ -40,22 +40,24 @@
 <script type="text/javascript" charset="utf-8">  
 review_form = document.getElementById('new_review');
 if (review_form) {
-review_form.addEventListener('submit', event => {
-      event.preventDefault();
-      // update form to get user data
-      review = new FormData(document.getElementById('new_review'));      
-      fetch('/reviews', {
-          method: 'post',
-          body: review,
-      })
-      .then(response => {
-        if (response.status === 201) {
-          response.json().then(json => DataRenderer.prototype.appendReview(json));          
-          // clearForm();
-        } else {
-          // alert
-        }
-      });
-  });
+  review_form.addEventListener('submit', event => {
+        event.preventDefault();
+        // update form to get user data
+        review = new FormData(document.getElementById('new_review'));      
+        fetch('/reviews', {
+            method: 'post',
+            body: review,
+        })
+        .then(response => {
+          if (response.status === 201) {
+            response.json().then(json => DataRenderer.prototype.appendReview(json));          
+            // clearForm(review_form);
+            review_form.reset();
+          } else {
+            // alert
+          }
+            review_form.lastElementChild.removeAttribute('disabled');
+        });
+    });
   }
 </script>

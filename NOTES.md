@@ -7,7 +7,7 @@
   - [x] Intercept new review form submission, 
   - [x] submit via js,
   - [x] render new review on page,
-  - [ ] refresh form upon successful submission
+  - [x] refresh form upon successful submission
   - [ ] render errors upon unsuccessful submission
   - [x] formSubmission event listener should only be added if form is present
   - [x] children that are an only child are not being rendered
