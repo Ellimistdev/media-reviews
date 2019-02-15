@@ -13,7 +13,7 @@ Project Specs:
   * [ ] Must use your Rails application to render a form for creating a resource that is submitted dynamically through JavaScript.
     - Media Show > new Review
   * [x] At least one of the JS Model Objects must have a method on the prototype.
-    - Review.new?
+    - Most of them.
     
 Project Repo Specs:  
 Read Me file contains:
