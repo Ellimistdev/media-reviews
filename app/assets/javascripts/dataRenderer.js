@@ -26,9 +26,9 @@ class DataRenderer {
   }
 
   renderMediumData(data) {       
-    const target = document.getElementById('medium-data')
+    const target = document.getElementById('title')
     const medium = new Medium(data);
-    target.innerHTML = medium.markup();
+    target.innerHTML += medium.title;
 
     if (data.reviews.length < 1) {      
       const medium = document.getElementsByClassName('title')[0].innerHTML;
