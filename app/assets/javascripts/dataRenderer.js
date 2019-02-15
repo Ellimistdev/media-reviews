@@ -28,16 +28,30 @@ class DataRenderer {
     target.innerHTML += "<h4>Reviews:</h4><ul id='reviews-list'></ul>";
   }
 
+  appendOwnerActions(target, id) {
+    target.innerHTML += `<div class='current_user_actions_review_${id}'>
+                          <a class='edit-review-link' href='/reviews/${id}/edit'>Edit Review</a>
+                          <button class='delete-review' onclick='DataHandler.prototype.deleteReview(${id})'>Delete Review</button>
+                        </div>`;
+  }
+  
   renderReviews(reviews) {
     this.setReviewHeader();
     let target = document.getElementById('reviews-list');
-    reviews.forEach(element => {
-      let obj = new Review(element);
-      target.innerHTML += obj.markup();        
+    DataHandler.prototype.getCurretUser().then(user => {    
+      reviews.forEach(element => {      
+        let obj = new Review(element);
+        target.innerHTML += obj.markup(); 
+        if (user && obj.reviewer.id === user.id) {
+          let review = document.getElementById(`review-${obj.id}`);
+          this.appendOwnerActions(review, obj.id);
+        }       
+      });
     });
   }
   
   appendReview(json) {
+    let user = DataHandler.prototype.getCurretUser();    
     let target = document.getElementById('reviews-list');
     if (!target) {
       this.setReviewHeader();
