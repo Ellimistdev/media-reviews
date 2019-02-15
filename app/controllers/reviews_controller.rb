@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     View.create(viewer: review.reviewer, medium: review.medium)
     return redirect_back fallback_location: medium_path(review.medium), notice: review.errors unless review.errors.blank?
 
-    redirect_to medium_path(review.medium)
+    render json: review, status: 201
   end
 
   def edit; end
