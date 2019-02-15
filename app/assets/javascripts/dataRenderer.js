@@ -35,13 +35,13 @@ class DataRenderer {
       this.renderReviews(medium.reviews);
     }
 
-    if (data.children.length > 1) {
-      this.renderChildren();
-    }
+    // if (data.children.length > 1) {
+    //   this.renderChildren();
+    // }
 
-    if (data.parent) {
-      this.renderParent();
-    }
+    // if (data.parent) {
+    //   this.renderParent();
+    // }
   }
 
   renderUserData(data, type) {

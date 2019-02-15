@@ -106,6 +106,7 @@ rails g model Season number medium:belongs_to series:belongs_to
 rails g model Episode title medium:belongs_to season:belongs_to
 ```
 
+  // const id = document.URL.match(/(\d+)(?!.*\d+)/)[0]; 
 
 # Auth responses
 Google
