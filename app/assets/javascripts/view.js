@@ -8,7 +8,7 @@ class View {
 
   markup() {
     return `<div class='view-${this.id}'>         
-      <h4 class='medium-title'><a class='medium-link' href='/media/${this.medium_id}'></a>${this.medium_title}</h4>        
+      <h4 class='medium-title'><a class='medium-link' href='/media/${this.medium_id}'>${this.medium_title}</a></h4>        
       <p class='view-content'>Viewed on: ${this.created_at}</p>
     </div>
     <hr>`
