@@ -46,7 +46,8 @@ class DataRenderer {
   }
 
   renderMediumData(data) {       
-    this.clearChildrenOf(document.getElementById('data'));
+    const dataElement = document.getElementById('data')
+    this.clearChildrenOf(dataElement);
     const target = document.getElementById('title');
     const medium = new Medium(data);
     target.innerHTML += medium.title;
@@ -59,8 +60,7 @@ class DataRenderer {
     }
 
     if (data.reviews.length < 1) {      
-      const element = document.getElementsByClassName('title')[0].innerHTML;
-      this.renderNoData(target, element, 'reviews');
+      this.renderNoData(dataElement, target.innerHTML, 'reviews');
     } else {
       this.renderReviews(medium.reviews);
     }
