@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   # Overridden by exposed controllers
   def data
     redirect_to root_path
-  end  
+  end
 
   def collection
     redirect_to root_path
