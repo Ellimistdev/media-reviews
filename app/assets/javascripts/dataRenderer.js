@@ -4,7 +4,9 @@ class DataRenderer {
   }
  
   renderReviews(reviews) {
-    const target = document.getElementById('reviews');
+    let target = document.getElementById('reviews');
+    target.innerHTML += "<h4>Reviews:</h4><ul id='reviews-list'></ul>";
+    target = document.getElementById('reviews-list');
     reviews.forEach(element => {
       let obj = new Review(element);
       target.innerHTML += obj.markup();        
