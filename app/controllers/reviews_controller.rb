@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[destroy edit update data]
   before_action :require_login, only: %i[create]
   before_action :require_owner, only: %i[destroy edit update]
+  skip_before_action :verify_authenticity_token, only: %i[destroy]
 
   def index
     @reviews = @user.reviews

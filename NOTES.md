@@ -1,7 +1,7 @@
 # TODO
 ## models
 [x] media show needs to clear children, reviews
-[ ] restore display of edit and delete buttons when logged in
+[x] restore display of edit and delete buttons when logged in
 [x] Must use your Rails application to render a form for creating a resource that is submitted dynamically through JavaScript.
   - [x] implement appendReview() to be called by form submission
   - [x] Intercept new review form submission, 
