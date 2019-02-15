@@ -23,10 +23,14 @@ class DataRenderer {
     });
   }
 
-  renderReviews(reviews) {
+  setReviewHeader() {
     let target = document.getElementById('reviews');
     target.innerHTML += "<h4>Reviews:</h4><ul id='reviews-list'></ul>";
-    target = document.getElementById('reviews-list');
+  }
+
+  renderReviews(reviews) {
+    this.setReviewHeader();
+    let target = document.getElementById('reviews-list');
     reviews.forEach(element => {
       let obj = new Review(element);
       target.innerHTML += obj.markup();        
@@ -35,6 +39,10 @@ class DataRenderer {
   
   appendReview(json) {
     let target = document.getElementById('reviews-list');
+    if (!target) {
+      this.setReviewHeader();
+      target = document.getElementById('reviews-list');
+    }
     let obj = new Review(json);
     target.innerHTML += obj.mediumMarkup();        
   }
