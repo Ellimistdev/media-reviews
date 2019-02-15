@@ -33,6 +33,12 @@ class DataRenderer {
     });
   }
   
+  appendReview(json) {
+    let target = document.getElementById('reviews-list');
+    let obj = new Review(json);
+    target.innerHTML += obj.mediumMarkup();        
+  }
+  
   renderViews(views) {        
     const target = document.getElementById('views');
     views.forEach(element => {
@@ -45,7 +51,7 @@ class DataRenderer {
     target.lastElementChild.innerHTML += `${element} has no ${type}!`;
   }
 
-  renderMediumData(data) {       
+  renderMediumData(data) {   
     const dataElement = document.getElementById('data')
     this.clearChildrenOf(dataElement);
     const target = document.getElementById('title');
