@@ -3,6 +3,16 @@ class DataRenderer {
     Array.from(target.children).forEach(child => child.innerHTML = '');
   }
  
+
+  renderChildren(children) {
+    const target = document.getElementById('children');
+    target.innerHTML += '<h4>Children:</h4>';
+    children.forEach(child => {
+      let obj = new MediumChild(child);
+      target.innerHTML += obj.markup();        
+    });
+  }
+
   renderReviews(reviews) {
     let target = document.getElementById('reviews');
     target.innerHTML += "<h4>Reviews:</h4><ul id='reviews-list'></ul>";
@@ -29,6 +39,10 @@ class DataRenderer {
     const target = document.getElementById('title')
     const medium = new Medium(data);
     target.innerHTML += medium.title;
+    
+    if (medium.children && medium.children.length > 1) {
+        this.renderChildren(medium.children);
+    }
 
     if (data.reviews.length < 1) {      
       const medium = document.getElementsByClassName('title')[0].innerHTML;
@@ -37,13 +51,6 @@ class DataRenderer {
       this.renderReviews(medium.reviews);
     }
 
-    // if (data.children.length > 1) {
-    //   this.renderChildren();
-    // }
-
-    // if (data.parent) {
-    //   this.renderParent();
-    // }
   }
 
   renderUserData(data, type) {
