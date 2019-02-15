@@ -1,8 +1,10 @@
 class DataHandler {
   setData(data, type) {
-    // if data has a reviews collection, it is a medium
+    // if data has a reviews collection, it is a single medium
     if (data.reviews){   
       DataRenderer.prototype.renderMediumData(data);
+    } else if (type === 'index'){      
+      DataRenderer.prototype.renderMediaIndex(data)
     } else {
       // otherwise it is a collection of reviews or views
       DataRenderer.prototype.renderUserData(data, type);

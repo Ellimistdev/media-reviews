@@ -1,6 +1,10 @@
 class DataRenderer {
+  clear(target) {    
+    target.innerHTML = '';
+  }
+
   clearChildrenOf(target) {
-    Array.from(target.children).forEach(child => child.innerHTML = '');
+    Array.from(target.children).forEach(child => this.clear(child));
   }
  
   renderParent(parent) {
@@ -71,5 +75,15 @@ class DataRenderer {
     } else {
       type === 'reviews' ? this.renderReviews(data) : this.renderViews(data);
     }
+  }
+
+  renderMediaIndex(index) {
+    const target = document.getElementById('media-list');
+    this.clear(target);    
+
+    index.forEach(medium => {
+      let obj = new Medium(medium);
+      target.innerHTML += `<li><a class='media-link' href='/media/${obj.id}'>${obj.title}</a></li>`;
+    });
   }
 }
