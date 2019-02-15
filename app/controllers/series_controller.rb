@@ -20,6 +20,10 @@ class SeriesController < ApplicationController
     render json: @series
   end
 
+  def collection
+    render json: Series.all, each_serializer: SeriesCollectionSerializer
+  end
+
   private
 
   def series_params

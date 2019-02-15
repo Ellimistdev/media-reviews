@@ -1,6 +1,12 @@
 Rails.application.routes.draw do  
   root 'static#home'
 
+  # Basic API endpoints
+  get '/:controller/:id/data', action: 'data'
+  get '/:controller/collection', action: 'collection'
+  get '/users/:id/reviews' => 'users#reviews'
+  get '/users/:id/views' => 'users#views'
+
   # User Routes
   get '/signup' => 'users#new'
   resources :users, only: %i[show update create]
@@ -19,7 +25,6 @@ Rails.application.routes.draw do
   resources :seasons, only: %i[create show]
   resources :episodes, only: %i[create show]
 
-
   # Session Control
   get '/login' => 'sessions#new'
   post '/logout' => 'sessions#destroy'
@@ -27,11 +32,6 @@ Rails.application.routes.draw do
 
   # Omniauth
   get '/auth/:provider/callback' => 'sessions#omni_create'
-
-  # Basic API endpoints
-  get '/:controller/:id/data', action: 'data'
-  get '/users/:id/reviews' => 'users#reviews'
-  get '/users/:id/views' => 'users#views'
 
   # fallback
   match "*path", via: %i[get post], to: "application#handle_404"

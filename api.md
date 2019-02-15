@@ -204,3 +204,14 @@
   }
 ]
 ```
+#### Movies/Series Collection
+```json
+[
+  {
+    "id": 1,
+    "medium_id": 8,
+    "title": "To Your Scattered Bodies Go"
+  }
+]
+```
+
