@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: %i[show data]
 
   def index
-    @movies = Movie.all    
+    @movies = Movie.all
   end
 
   def new; end
@@ -35,5 +35,3 @@ class MoviesController < ApplicationController
     return redirect_to new_movie_path unless @movie
   end
 end
-
-
