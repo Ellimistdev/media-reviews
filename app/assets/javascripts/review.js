@@ -11,10 +11,10 @@ class Review {
   }
 
   markup() {
-    return this.hasOwnProperty("medium_id") ? this.user_markup() : this.medium_markup();
+    return this.hasOwnProperty("medium_id") ? this.userMarkup() : this.mediumMarkup();
   }
   
-  user_markup() {
+  userMarkup() {
     return `<li class='review' id='review-${this.id}'>         
       <h4 class='title'>
         <a class='media-link' href='/media/${this.medium_id}'>${this.medium_title}</a>, - <span class='review-rating'>${this.rating}/5</span>
@@ -23,7 +23,7 @@ class Review {
     </li>`
   }
 
-  medium_markup() {
+  mediumMarkup() {
     return `<li class='review' id='review-${this.id}'> 
       <p>${this.content} by <a class='reviewer-link' href='/users/${this.reviewer.id}'>${this.reviewer.username}</a></p>  
     </li>`
