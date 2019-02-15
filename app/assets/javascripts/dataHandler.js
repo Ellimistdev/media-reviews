@@ -20,4 +20,26 @@ class DataHandler {
     this.getDataAsJson(route)
       .then(json => this.setData(json, type));
   }
+
+  submitData(route, form, form_field) {
+    let notice = document.getElementById('notice');
+    DataRenderer.prototype.clear(notice);    
+    fetch(route, {
+      method: 'post',
+      body: form,
+    })
+    .then(response => {
+      if (response.status === 201) {
+        response.json().then(json => DataRenderer.prototype.appendReview(json));          
+        form_field.reset();
+      } else {
+        response.json().then(messages => {          
+          messages['errors'].forEach(error => {
+            notice.innerHTML += `<li class='error'>${error}</li>`;        
+          });
+        });
+      }
+      form_field.lastElementChild.removeAttribute('disabled');
+    });
+  }
 }

@@ -21,7 +21,7 @@
           <%= render 'views/new_view', view: View.new, medium_id: medium.medium_id %>
         <% end %>
       </div>
-      <div id='add-review'>
+      <div id='add-review'>        
         <h4>Review this <%= medium.medium.medium_type %>!</h4>
         <%= render 'notice' %>
         <%= render 'reviews/form', review: Review.new, medium_id: medium.medium_id %>
@@ -38,26 +38,12 @@
 </script>
 
 <script type="text/javascript" charset="utf-8">  
-review_form = document.getElementById('new_review');
-if (review_form) {
-  review_form.addEventListener('submit', event => {
-        event.preventDefault();
-        // update form to get user data
-        review = new FormData(document.getElementById('new_review'));      
-        fetch('/reviews', {
-            method: 'post',
-            body: review,
-        })
-        .then(response => {
-          if (response.status === 201) {
-            response.json().then(json => DataRenderer.prototype.appendReview(json));          
-            // clearForm(review_form);
-            review_form.reset();
-          } else {
-            // alert
-          }
-            review_form.lastElementChild.removeAttribute('disabled');
-        });
+  form_field = document.getElementById('new_review');
+  if (form_field) {
+    form_field.addEventListener('submit', event => {
+      event.preventDefault();
+      review_form = new FormData(form_field);      
+      DataHandler.prototype.submitData('/reviews', review_form, form_field);
     });
   }
 </script>
