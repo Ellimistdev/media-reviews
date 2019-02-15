@@ -3,6 +3,12 @@ class DataRenderer {
     Array.from(target.children).forEach(child => child.innerHTML = '');
   }
  
+  renderParent(parent) {
+    const target = document.getElementById('parent');
+    target.innerHTML += '<h4>Parent:</h4>';
+    let obj = new MediumParent(parent);
+    target.innerHTML += obj.markup();            
+  }
 
   renderChildren(children) {
     const target = document.getElementById('children');
