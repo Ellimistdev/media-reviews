@@ -45,6 +45,9 @@ class DataRenderer {
     const target = document.getElementById('title')
     const medium = new Medium(data);
     target.innerHTML += medium.title;
+    if (medium.parent) {
+      this.renderParent(medium.parent);
+    }
     
     if (medium.children && medium.children.length > 1) {
         this.renderChildren(medium.children);
