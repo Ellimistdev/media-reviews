@@ -3,8 +3,12 @@
 [x] media show needs to clear children, reviews
 [ ] restore display of edit and delete buttons when logged in
 [ ] Must use your Rails application to render a form for creating a resource that is submitted dynamically through JavaScript.
-  - Intercept new review form submission, submit via js, render new review on page, don't reload the page
-  - probably need to have appendReview() to be called by renderReview and form submission
+  - [x] implement appendReview() to be called by form submission
+  - [x] Intercept new review form submission, 
+  - [x] submit via js,
+  - [x] render new review on page,
+  - [ ] refresh form upon successful submission
+  - [ ] render errors upon unsuccessful submission
   
 
 
