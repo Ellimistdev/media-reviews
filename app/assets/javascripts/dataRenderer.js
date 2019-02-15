@@ -38,7 +38,7 @@ class DataRenderer {
   renderReviews(reviews) {
     this.setReviewHeader();
     let target = document.getElementById('reviews-list');
-    DataHandler.prototype.getCurretUser().then(user => {    
+    DataHandler.prototype.getCurrentUser().then(user => {    
       reviews.forEach(element => {      
         let obj = new Review(element);
         target.innerHTML += obj.markup(); 
@@ -51,7 +51,7 @@ class DataRenderer {
   }
   
   appendReview(json) {
-    let user = DataHandler.prototype.getCurretUser();    
+    DataHandler.prototype.getCurrentUser().then(user => {     
     let target = document.getElementById('reviews-list');
     if (!target) {
       this.setReviewHeader();

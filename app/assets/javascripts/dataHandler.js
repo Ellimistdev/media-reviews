@@ -47,7 +47,7 @@ class DataHandler {
     return new User(json);
   }
 
-  getCurretUser() {
+  getCurrentUser() {
     return this.getDataAsJson('/cui').then(json => this.setUser(json));
   }
 
