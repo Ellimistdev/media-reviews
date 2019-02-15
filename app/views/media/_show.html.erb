@@ -39,6 +39,7 @@
 
 <script type="text/javascript" charset="utf-8">  
 review_form = document.getElementById('new_review');
+if (review_form) {
 review_form.addEventListener('submit', event => {
       event.preventDefault();
       // update form to get user data
@@ -56,4 +57,5 @@ review_form.addEventListener('submit', event => {
         }
       });
   });
+  }
 </script>

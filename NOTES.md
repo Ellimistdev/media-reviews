@@ -9,6 +9,8 @@
   - [x] render new review on page,
   - [ ] refresh form upon successful submission
   - [ ] render errors upon unsuccessful submission
+  - [x] formSubmission event listener should only be added if form is present
+  - [x] children that are an only child are not being rendered
   
 
 

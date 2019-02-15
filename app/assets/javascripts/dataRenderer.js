@@ -61,7 +61,7 @@ class DataRenderer {
       this.renderParent(medium.parent);
     }
     
-    if (medium.children && medium.children.length > 1) {
+    if (medium.children && medium.children.length > 0) {
         this.renderChildren(medium.children);
     }
 
