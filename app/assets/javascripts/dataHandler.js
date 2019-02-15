@@ -1,18 +1,11 @@
 class DataHandler {
-  clear(target) {
-    target.innerHTML = '';
-  }
-
-  setData(data, target, type) {
-    if (data.length < 1) {      
-      const username = document.getElementById('username').innerHTML;
-      target.innerHTML = `${username} has no ${type}s!`;
+  setData(data, type) {
+    // if data has a reviews collection, it is a medium
+    if (data.reviews){   
+      DataRenderer.prototype.renderMediumData(data);
     } else {
-      this.clear(target);
-      data.forEach(element => {
-        let obj = type === 'review' ? new Review(element) : new View(element);
-        target.innerHTML += obj.markup();
-      });
+      // otherwise it is a collection of reviews or views
+      DataRenderer.prototype.renderUserData(data, type);
     }
   }
   
@@ -21,8 +14,8 @@ class DataHandler {
       .then(response => response.json());
   }
   
-  renderData(route, target, type) {
+  renderData(route, type) {
     this.getDataAsJson(route)
-      .then(json => this.setData(json, target, type));
+      .then(json => this.setData(json, type));
   }
 }
