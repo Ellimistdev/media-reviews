@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/:controller/collection', action: 'collection'
   get '/users/:id/reviews' => 'users#reviews'
   get '/users/:id/views' => 'users#views'
+  get '/cui' => 'application#current_user_info'
 
   # User Routes
   get '/signup' => 'users#new'

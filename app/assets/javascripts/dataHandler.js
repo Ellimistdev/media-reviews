@@ -42,4 +42,12 @@ class DataHandler {
       form_field.lastElementChild.removeAttribute('disabled');
     });
   }
+
+  setUser(json) {
+    return new User(json);
+  }
+
+  getCurretUser() {
+    return this.getDataAsJson('/cui').then(json => this.setUser(json));
+  }
 }
