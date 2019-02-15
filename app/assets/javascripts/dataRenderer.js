@@ -25,6 +25,7 @@ class DataRenderer {
 
   setReviewHeader() {
     let target = document.getElementById('reviews');
+    this.clear(target);
     target.innerHTML += "<h4>Reviews:</h4><ul id='reviews-list'></ul>";
   }
 
@@ -52,13 +53,18 @@ class DataRenderer {
   
   appendReview(json) {
     DataHandler.prototype.getCurrentUser().then(user => {     
-    let target = document.getElementById('reviews-list');
-    if (!target) {
-      this.setReviewHeader();
-      target = document.getElementById('reviews-list');
-    }
-    let obj = new Review(json);
-    target.innerHTML += obj.mediumMarkup();        
+      let target = document.getElementById('reviews-list');
+      if (!target) {
+        this.setReviewHeader();
+        target = document.getElementById('reviews-list');
+      }
+      let obj = new Review(json);
+      target.innerHTML += obj.mediumMarkup();
+      if (user && obj.reviewer.id === user.id) {
+        let review = document.getElementById(`review-${obj.id}`);
+        this.appendOwnerActions(review, obj.id);
+      }   
+    });
   }
   
   renderViews(views) {        
