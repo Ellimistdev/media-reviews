@@ -1,5 +1,5 @@
 class EpisodesController < ApplicationController
-  before_action :set_episode, only: %i[show]
+  before_action :set_episode, only: %i[show data]
 
   def new; end
 
@@ -9,13 +9,17 @@ class EpisodesController < ApplicationController
     episode.season = season
     episode.save
     unless episode.errors.blank?
-      return redirect_back fallback_location: season_path(params[:episode][:season_id]), notice: episode.errors 
+      return redirect_back fallback_location: season_path(params[:episode][:season_id]), notice: episode.errors
     end
 
     redirect_to episode_path(episode)
   end
 
   def show; end
+
+  def data
+    render json: @episode
+  end
 
   private
 

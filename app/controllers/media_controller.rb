@@ -1,5 +1,5 @@
 class MediaController < ApplicationController
-  before_action :set_medium, only: %i[show]
+  before_action :set_medium, only: %i[show data]
 
   def index; end
 
@@ -16,6 +16,10 @@ class MediaController < ApplicationController
     else
       redirect_back fallback_location: root_path, notice: 'Something has gone terribly wrong'
     end
+  end
+
+  def data
+    render json: @medium
   end
 
   private

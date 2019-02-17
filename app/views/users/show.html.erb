@@ -1,4 +1,4 @@
-<h1><%= "#{@user.attributes['username']}" %></h1>
+<h1 id='username'><%= "#{@user.attributes['username']}" %></h1>
 <% if current_user == @user %>
   <fieldset>
     <legend>Update profile information:</legend>
@@ -10,6 +10,20 @@
 <% end %>
 <ul>
   <li><%= "User id: #{@user.attributes['id']}" %></li>
-  <li><%= link_to "User Reviews", user_reviews_path(@user) %></li>
-  <li><%= link_to "User Views", user_views_path(@user) %></li>
+  <li><button id='review-button'>User Reviews</button></li>
+  <li><button id='view-button'>User Views</button></li>
 </ul>
+<section id='user-data'>
+  <section id='reviews'></section>
+  <section id='views'></section>
+  <span id='no-data'></span>
+</section>
+
+<script type='text/javascript' charset='utf-8'>
+  url = new URL(this.document.URL); 
+
+  document.getElementById('review-button')
+    .addEventListener('click', () => DataHandler.prototype.renderData(`${url.pathname}/reviews`, 'reviews'));
+  document.getElementById('view-button')
+    .addEventListener('click', () => DataHandler.prototype.renderData(`${url.pathname}/views`, 'views'));  
+</script>

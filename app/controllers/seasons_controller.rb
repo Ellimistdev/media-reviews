@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-  before_action :set_season, only: %i[show]
+  before_action :set_season, only: %i[show data]
 
   def new
     @season = Season.new
@@ -7,8 +7,8 @@ class SeasonsController < ApplicationController
   end
 
   def create
-    season = Season.new(season_params)    
-    series = Series.find_by(id: params[:season][:series_id]) 
+    season = Season.new(season_params)
+    series = Series.find_by(id: params[:season][:series_id])
     season.series = series
     season.save
     return redirect_back fallback_location: new_series_season_path(params[:season][:series_id]), notice: season.errors unless season.errors.blank?
@@ -17,6 +17,10 @@ class SeasonsController < ApplicationController
   end
 
   def show; end
+
+  def data
+    render json: @season
+  end
 
   private
 

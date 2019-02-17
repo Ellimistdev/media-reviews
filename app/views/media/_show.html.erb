@@ -1,34 +1,49 @@
-<h1><%= medium.title %></h1>
+<article id='medium'>  
+  <section id='data'>
+    <h2 id='title'></h2>
+    <section id='parent'></section>
+    <section id='children'></section> 
+    <section id='reviews'></section> 
+  </section>
+  <section id='actions'>
+    <div id='add-child'>
+      <% unless medium.class.name == 'Movie' || medium.class.name == 'Episode' %>
+        <% if medium.class.name == 'Series' %>
+          <%= render '/media/prompt_new', medium_name: 'Season', new_path: new_series_season_path(series_id: medium.id) %>
+        <% else %>
+          <%= render '/media/prompt_new', medium_name: 'Episode', new_path: new_series_season_episode_path(series_id: medium.parent.id, season_id: medium.id) %>
+        <% end %>
+      <% end %>
+    </div>
+    <% if logged_in? %>
+      <div id='add-view'>
+        <% unless current_user.views.any? { |view| view.medium_id == medium.medium_id } %>
+          <%= render 'views/new_view', view: View.new, medium_id: medium.medium_id %>
+        <% end %>
+      </div>
+      <div id='add-review'>        
+        <h4>Review this <%= medium.medium.medium_type %>!</h4>
+        <%= render 'notice' %>
+        <%= render 'reviews/form', review: Review.new, medium_id: medium.medium_id %>
+      </div>
+    <% else %>
+      <p>Log in to add a review!</p>
+    <% end %>
+  </section>
+</article>
 
-<% unless medium.reviews.empty? %>
-   <% medium.reviews.each do |review| %>
-    <p><%= review.content%> by <%= link_to  review.reviewer.username, user_path(review.reviewer) %></p>
-    <%= render 'reviews/owner_actions', review: review %>
-    <hr>
-  <% end %> 
-<% else %>
-  <p><%= medium.title %> has no reviews!</p>
-<% end %>
+<script type='text/javascript' charset='utf-8'>
+  url = new URL(this.document.URL);
+  DataHandler.prototype.renderData(`${url.pathname}/data`);  
+</script>
 
-<% if logged_in? %>
-  <% unless current_user.views.any? { |view| view.medium_id == medium.medium_id } %>
-    <%= render 'views/new_view', view: View.new, medium_id: medium.medium_id %>
-  <% end %>
-
-  <h4>Review this <%= medium.medium.medium_type %>!</h4>
-  <%= render 'notice' %>
-  <%= render 'reviews/form', review: Review.new, medium_id: medium.medium_id %>
-<% else %>
-  <p>Log in to add a review!</p>
-<% end %>
-
-<% unless medium.class.name == 'Movie' || medium.class.name == 'Episode' %>
-  <%= render 'media/children', medium: medium %>
-  <% if medium.class.name == 'Series' %>
-    <%= render '/media/prompt_new', medium_name: 'Season', new_path: new_series_season_path(series_id: medium.id) %>
-  <% else %>
-    <%= render '/media/prompt_new', medium_name: 'Episode', new_path: new_series_season_episode_path(series_id: medium.parent.id, season_id: medium.id) %>
-  <% end %>
-<% end %>
-
-<%= render 'media/parent', medium: medium %>
+<script type="text/javascript" charset="utf-8">  
+  form_field = document.getElementById('new_review');
+  if (form_field) {
+    form_field.addEventListener('submit', event => {
+      event.preventDefault();
+      review_form = new FormData(form_field);      
+      DataHandler.prototype.submitData('/reviews', review_form, form_field);
+    });
+  }
+</script>

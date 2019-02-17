@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     @current_user = user
   end
 
+  def current_user_info
+    render json: { username: current_user&.username, id: current_user&.id };
+  end
+
   def set_user(id = params[:user_id])
     @user = User.find_by(id: id)
   end
@@ -20,5 +24,18 @@ class ApplicationController < ActionController::Base
 
   def require_login
     return head(:forbidden) unless current_user
+  end
+
+  def handle_404
+    redirect_to root_path
+  end
+
+  # Overridden by exposed controllers
+  def data
+    redirect_to root_path
+  end
+
+  def collection
+    redirect_to root_path
   end
 end

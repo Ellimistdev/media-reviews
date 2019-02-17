@@ -1,10 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :set_user, only: %i[index]
+  before_action :set_review, only: %i[destroy edit update data]
   before_action :require_login, only: %i[create]
-  before_action only: %i[destroy edit update] do
-    set_review
-    require_owner
-  end
+  before_action :require_owner, only: %i[destroy edit update]
+  skip_before_action :verify_authenticity_token, only: %i[destroy]
 
   def index
     @reviews = @user.reviews
@@ -12,12 +11,13 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
-    review.save
     # If this fails, view already exists
     View.create(viewer: review.reviewer, medium: review.medium)
-    return redirect_back fallback_location: medium_path(review.medium), notice: review.errors unless review.errors.blank?
-
-    redirect_to medium_path(review.medium)
+    if review.save
+      render json: review, status: 201
+    else
+      render json: { errors: review.errors.full_messages }, status: 400
+    end
   end
 
   def edit; end
@@ -31,7 +31,15 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_back fallback_location: root_path
+    if @review.destroyed?
+      head :accepted
+    else
+      head :bad_request
+    end
+  end
+
+  def data
+    render json: @review
   end
 
   private

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, only: %i[update]
-  before_action only: %i[show update] do
+  before_action only: %i[show update data reviews views] do
     set_user(params[:id])
   end
 
@@ -26,6 +26,18 @@ class UsersController < ApplicationController
       return redirect_to user_path(user)
     end
     redirect_to signup_path, notice: user.errors
+  end
+
+  def reviews
+    render json: @user.reviews
+  end
+
+  def views
+    render json: @user.views
+  end
+
+  def data
+    render json: @user
   end
 
   private

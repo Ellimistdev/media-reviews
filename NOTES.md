@@ -1,70 +1,18 @@
 # TODO
 ## models
-[x] propagate user|media associations through to media elements
-  - i.e. episode.viewers should return list of viewers, currently need to call episode.medium.viewers  
-## controllers
-- [x] add routes  
-- [x] add local auth  
-- [x] add omniauth  
-  - [x] add facebook  
-  - [x] add google  
-  - [x] add twitter  
-- [x] create SessionsController  
-- [x] create UsersController  
-- [x] BUG User creation: uniqueness is enforced on nil values  
-- [x] create ReviewsController  
-  - [x] adding review should mark media as viewed for reviewer
-- [x] create ViewsController  
-- [x] create MediaController  
-  - [x] show action should detect the media type and route to the approprate path
-- [x] create MoviesController  
-- [x] create SeasonsController  
-- [x] create SeriesController  
-- [x] create EpisodesController  
-## views
-- [x] create social login partial  
-- [x] add facebook to social_partial  
-- [x] add google to social_partial  
-- [x] add twitter to social_partial  
-- [x] add social_partial to login  
-- [x] add social_partial to signup  
-- [x] create media views
-  - [x] Index
-    - [x] Shows links for movies, series 
-  - [x] Show
-    - [x] shows a single media element
-    - [x] its reviews
-    - [x] new review form
-    - [x] links to parents
-    - [x] children
-    - [x] mark viewed for current_user
-    - [x] links to create new children
-  - [x] Index
-    - [x] lists all media in scope
-  - [x] Movies
-    - [x] New  
-      - [x] new media form
-  - [x] Series    
-    - [x] New  
-      - [x] new media form
-  - [x] Seasons    
-    - [x] New  
-      - [x] new media form
-  - [x] Episodes    
-    - [x] New  
-      - [x] new media form
-- [x] create view views
-  - [x] Index  
-      - [x] has links to all media a user has marked viewed
-- [x] create review views
-  - [x] Index
-    - [x] lists all reviews by user with links to reviewed media
-  - [x] Edit
-    - [x] edit review form
-- [x] User views
-  - [x] Show
-    - [x] Should link to user reviews, views,
-    - [x] Don't display user email
+[x] media show needs to clear children, reviews
+[x] restore display of edit and delete buttons when logged in
+[x] Must use your Rails application to render a form for creating a resource that is submitted dynamically through JavaScript.
+  - [x] implement appendReview() to be called by form submission
+  - [x] Intercept new review form submission, 
+  - [x] submit via js,
+  - [x] render new review on page,
+  - [x] refresh form upon successful submission
+  - [x] render errors upon unsuccessful submission
+  - [x] formSubmission event listener should only be added if form is present
+  - [x] children that are an only child are not being rendered
+  
+
 
 # Routes
 ## sessions | users | reviews | views
@@ -106,6 +54,7 @@ rails g model Season number medium:belongs_to series:belongs_to
 rails g model Episode title medium:belongs_to season:belongs_to
 ```
 
+// const id = document.URL.match(/(\d+)(?!.*\d+)/)[0]; 
 
 # Auth responses
 Google
